@@ -139,7 +139,7 @@ a{color:inherit}
 a.crow{transition:padding .35s var(--ease),background .25s}
 a.crow:hover{padding-left:44px;background:var(--bg)}
 .crow.first{justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
-.crow.first img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.crow.first img.mark{width:150px;height:auto;border-radius:0;object-fit:contain}
 .crow.hello{align-items:center;gap:24px;padding-top:40px;padding-bottom:40px}
 .arrow{width:.9em;height:.9em;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:.5em;font-weight:800;flex:none;transition:transform .3s var(--ease)}
 a.crow:hover .arrow{transform:translateX(10px)}
@@ -213,7 +213,7 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
   .facts{grid-template-columns:1fr 1fr;width:100%;order:2}
   .crow{font-size:1.25rem;min-height:64px;padding:18px 16px 10px}
   .crow.first{justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
-.crow.first img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.crow.first img.mark{width:150px;height:auto;border-radius:0;object-fit:contain}
 .crow.hello{background:var(--accent);padding:24px 16px}
   .fup{display:block}
   .fup h2{font-size:2rem}
@@ -343,7 +343,7 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
 
 <section class="contact" aria-labelledby="contact-h">
   <h2 class="vh" id="contact-h">Contact</h2>
-  <div class="crow first rise">Wipe Clean Services<img src="img/caddy.jpg" width="326" height="564" alt="A Wipe Clean cleaner in uniform" loading="lazy"></div>
+  <div class="crow first rise">Wipe Clean Services<img class="mark" src="img/logo.png" width="400" height="100" alt="" loading="lazy"></div>
   <a class="crow rise" href="https://www.google.com/maps/search/?api=1&query=8+Shay+Close+Narre+Warren+VIC+3805">8 Shay Close</a>
   <div class="crow rise">Narre Warren VIC 3805</div>
   <div class="crow rise">Around your hours</div>
