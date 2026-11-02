@@ -11,12 +11,12 @@
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff; --surface:#f4f4f2; --ink:#1f2b4d; --muted:#5b6379;
-  --accent:#f7941d; --accent-ink:#1f2b4d;
-  --water:#1b4fa8; --water-ink:#ffffff;
-  --field-1:#05070a; --field-1-ink:#ffffff;
-  --field-2:#e3e1dc; --field-2-ink:#1f2b4d;
-  --dark-a:#0b0f1a; --dark-b:#121828;
+  --bg:#ffffff; --surface:#f2f4ee; --ink:#1d2916; --muted:#58634d;
+  --accent:#a9c46d; --accent-ink:#1d2916;
+  --water:#4b5f2c; --water-ink:#ffffff;
+  --field-1:#0a0e07; --field-1-ink:#ffffff;
+  --field-2:#e1e5d6; --field-2-ink:#1d2916;
+  --dark-a:#10170b; --dark-b:#18210f;
   --m:clamp(16px,2.2vw,32px);
   --step-small:clamp(0.8125rem,0.79rem + 0.1vw,0.875rem);
   --step-body:clamp(1.0625rem,1rem + 0.25vw,1.1875rem);
@@ -45,7 +45,8 @@ a{color:inherit}
 /* hero: waterline */
 .hero{position:relative;height:calc(100svh - 33px);min-height:560px;display:grid;overflow:hidden;background:var(--bg)}
 .hero .sea{position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--water)}
-.hero .brand{position:absolute;top:28px;left:var(--m);font-weight:800;font-size:var(--step-lead);letter-spacing:-.02em;z-index:3;text-decoration:none}
+.hero .brand{position:absolute;top:clamp(72px,9vh,110px);left:50%;transform:translateX(-50%);z-index:3;text-decoration:none;display:block}
+.hero .brand img{width:clamp(220px,32vw,460px);height:auto}
 .hero .btn{position:absolute;top:22px;right:var(--m);z-index:3}
 .hl{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;font-size:clamp(72px,12vw,190px)}
 .hl span{display:block;overflow:hidden;padding:.04em 0 .02em;position:relative;top:-.4em}
@@ -63,12 +64,29 @@ a{color:inherit}
 .stats p{font-size:var(--step-statement);line-height:1.2;letter-spacing:-.02em;color:var(--muted);max-width:30em;margin-left:calc(100% / 12 * 3)}
 .stats p b{font-weight:800;color:var(--ink);white-space:nowrap}
 
-/* band: one real night picture, full bleed */
-.band{position:relative;height:clamp(320px,56vw,760px);overflow:hidden;background:var(--field-1)}
+/* band: our own cleaners, three frames */
+.band{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.4vw,20px);padding:0 var(--m);background:var(--bg);padding-bottom:clamp(60px,8vw,120px)}
+.band figure{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--field-1)}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.4s var(--ease)}
 .band.in img{transform:scale(1)}
-.band .cap{position:absolute;left:var(--m);bottom:20px;color:var(--field-1-ink);font-size:var(--step-small);z-index:2}
-.band::after{content:"";position:absolute;inset:0;background:rgba(5,7,10,.18)}
+.band figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font-size:var(--step-small);z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.band figure::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(5,7,10,.55))}
+
+/* seal: strip and seal, two floors */
+.seal{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);padding:clamp(80px,10vw,160px) var(--m);background:var(--surface);align-items:center}
+.seal h2{font-size:var(--step-head);line-height:.98;letter-spacing:-.035em;font-weight:800;margin-bottom:24px}
+.seal p{font-size:var(--step-lead);line-height:1.35;max-width:26em}
+.seal .pics{display:grid;grid-template-columns:1fr 1.5fr;gap:12px;align-items:end}
+.seal .pics img{width:100%;height:auto;object-fit:cover}
+.seal .pics img:first-child{aspect-ratio:3/5}
+.seal .pics img:last-child{aspect-ratio:16/10}
+
+/* clients */
+.clients{padding:clamp(80px,10vw,160px) var(--m);background:var(--bg);display:grid;grid-template-columns:34% 1fr}
+.clients h2{font-size:var(--step-lead);font-weight:500}
+.clients ul{list-style:none;columns:2;column-gap:40px;font-size:var(--step-lead);line-height:1.2}
+.clients li{padding:8px 0;border-top:1px solid #d6dccb;break-inside:avoid}
+.clients .more{grid-column:2;margin-top:24px;color:var(--muted);font-size:var(--step-body)}
 
 /* work: quiet ledger + side preview */
 .work{padding:clamp(100px,12vw,200px) var(--m);display:grid;grid-template-columns:1fr;position:relative;background:var(--bg)}
@@ -164,12 +182,20 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
 }
 /* phone */
 @media (max-width:760px){
+  .band{gap:6px;padding-bottom:64px}
+  .band figcaption{left:8px;bottom:6px;font-size:.75rem}
+  .seal{grid-template-columns:1fr;padding:72px 16px}
+  .seal h2{font-size:10vw}
+  .clients{grid-template-columns:1fr;padding:72px 16px;gap:28px}
+  .clients ul{columns:1}
+  .clients .more{grid-column:1}
   .hero{min-height:520px}
   .hero .sea{height:54%}
   .hl{font-size:15.5vw}
   .hl.above{clip-path:inset(0 0 54% 0)}
   .hl.below{clip-path:inset(46% 0 0 0)}
-  .hero .brand{font-size:1.125rem;top:24px}
+  .hero .brand{top:84px}
+  .hero .brand img{width:72vw}
   .hero .btn{padding:10px 14px;top:18px}
   .hero .sub{text-align:left;font-size:1.125rem;bottom:24px;padding:0 16px}
   .stats p{font-size:1.5rem;line-height:1.25;margin-left:0}
@@ -200,11 +226,11 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
 </head>
 <body>
 
-<div class="draft">Draft for Roger Wilson to review. Not live. Figures and photos to be confirmed.</div>
+<div class="draft">Draft for Roger Wilson to review. Not live. All figures, photos and names are from Roger&rsquo;s own portfolio.</div>
 
 <header class="hero" id="top">
   <div class="sea"></div>
-  <a class="brand" href="#top">Wipe Clean Services</a>
+  <a class="brand" href="#top"><img src="img/logo.png" width="400" height="100" alt="Wipe Clean Services"></a>
   <a class="btn" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request&body=Site%20and%20job%3A%20">Get a free quote</a>
   <h1 class="hl above" aria-label="Clean by morning. Wipe Clean Services, commercial cleaning for Melbourne offices and retail stores.">
     <span aria-hidden="true"><i>Clean by</i></span>
@@ -224,8 +250,9 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
 </section>
 
 <div class="band" id="band">
-  <img src="img/night-windows.jpg" width="2400" height="1350" alt="A tower at night with a grid of lit office windows" loading="lazy">
-  <span class="cap">Photo: Vladimir Kudinov, Unsplash</span>
+  <figure><img src="img/windows-night.jpg" width="428" height="565" alt="A Wipe Clean cleaner in uniform cleaning shopfront glass at night" loading="lazy"><figcaption>Glass, after hours</figcaption></figure>
+  <figure><img src="img/bathroom-mop.jpg" width="426" height="557" alt="A Wipe Clean cleaner in uniform mopping a washroom floor" loading="lazy"><figcaption>Washrooms</figcaption></figure>
+  <figure><img src="img/office-vac.jpg" width="323" height="557" alt="A Wipe Clean cleaner vacuuming an open-plan office" loading="lazy"><figcaption>Offices</figcaption></figure>
 </div>
 
 <section class="work" aria-labelledby="work-h">
@@ -242,12 +269,12 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
     <p class="detail" id="detail" aria-live="polite">Offices and retail stores, including after hours so your team is not disturbed. Janitorial, restrooms, safe rubbish removal and recycling, car parks.</p>
   </div>
   <div class="preview" aria-hidden="false">
-    <img class="show" src="img/image_67128577.jpg" width="1200" height="1600" alt="Washroom cubicles and a freshly sealed non-slip floor">
-    <img src="img/image_67123457.jpg" width="1200" height="1600" alt="Basins and tiled floor in a commercial washroom" loading="lazy">
-    <img src="img/image_67151105.jpg" width="1200" height="1600" alt="Washroom basins, mirror and floor, cleaned" loading="lazy">
-    <img src="img/unnamed.jpg" width="1200" height="1600" alt="Clean basins and mirror" loading="lazy">
-    <img src="img/image_67134209.jpg" width="1200" height="1600" alt="Sanitised toilet, floor and brush" loading="lazy">
-    <img src="img/image002.jpg" width="1200" height="1600" alt="Sanitised toilet and floor mat" loading="lazy">
+    <img class="show" src="img/office-vac.jpg" width="323" height="557" alt="A Wipe Clean cleaner vacuuming an open-plan office">
+    <img src="img/strip-wide.jpg" width="887" height="500" alt="A retail store floor, stripped, sealed and gleaming" loading="lazy">
+    <img src="img/store-clean.jpg" width="755" height="551" alt="A Wipe Clean cleaner working in a retail store aisle" loading="lazy">
+    <img src="img/bathroom-mop.jpg" width="426" height="557" alt="A Wipe Clean cleaner mopping a washroom floor" loading="lazy">
+    <img src="img/windows-night.jpg" width="428" height="565" alt="A Wipe Clean cleaner cleaning glass at night" loading="lazy">
+    <img src="img/caddy.jpg" width="326" height="564" alt="A Wipe Clean cleaner carrying a colour-coded caddy" loading="lazy">
   </div>
 </section>
 
@@ -267,6 +294,39 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
   </div>
 </section>
 
+<section class="seal" aria-labelledby="seal-h">
+  <div>
+    <h2 id="seal-h" class="rise">Strip and seal</h2>
+    <p class="rise" data-d="1">Over 270 retail store floors, back to their original gleaming condition. A better floor means less risk of slips and damage, and a shop that looks cared for.</p>
+  </div>
+  <div class="pics rise" data-d="2">
+    <img src="img/strip-aisle.jpg" width="321" height="563" alt="A long store aisle with a freshly sealed floor" loading="lazy">
+    <img src="img/strip-wide.jpg" width="887" height="500" alt="A retail floor, sealed and shining under the shop lights" loading="lazy">
+  </div>
+</section>
+
+<section class="clients" aria-labelledby="clients-h">
+  <h2 id="clients-h" class="rise">Who we clean for</h2>
+  <ul class="rise" data-d="1">
+    <li>Officeworks support offices</li>
+    <li>Officeworks stores, Victoria</li>
+    <li>Dandenong Hub</li>
+    <li>Vanity Court Hub</li>
+    <li>EZY Chef factory and office</li>
+    <li>Virginia Caf&eacute;</li>
+    <li>Alpha Peak</li>
+    <li>Murdoch &amp; Webster IT Consulting</li>
+    <li>Smith Feutrill Accounting</li>
+    <li>Fethers Glazing Systems</li>
+    <li>Pandasbark</li>
+    <li>UBC Badminton Centre</li>
+    <li>Portland House</li>
+    <li>Badminton Connect, five venues</li>
+    <li>Chapel Street Bazaar</li>
+  </ul>
+  <p class="more rise">On a panel for government cleaning and school cleaning since 2014. Aged care facilities too.</p>
+</section>
+
 <section class="about" aria-labelledby="about-h">
   <h2 class="vh" id="about-h">About Wipe Clean Services</h2>
   <dl class="facts rise">
@@ -275,14 +335,15 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
     <div><dt>ABN</dt><dd>77 121 542 852</dd></div>
   </dl>
   <div>
-    <p class="rise">Wipe Clean Services cleans commercial sites across Melbourne. Offices and retail stores are the core of it, with schools and aged care alongside, and the work is done around your hours so your team never has to step over a mop bucket.</p>
-    <p class="rise" data-d="1">Tell us the site and the budget. We will quote it, free, and tailor the clean to what you need, weekly, monthly or twice a year.</p>
+    <p class="rise">We are a specialised, medium-sized, family owned and operated cleaning company. Licensed, with full liability and workers compensation cover.</p>
+    <p class="rise" data-d="1">We provide more than routine office cleaning: carpet cleaning, hard floor maintenance, strip and seal and spray buff. We do not cut corners or rush the job. Our cleaners are chosen for industry experience, then police checked, reference checked and trained by our management.</p>
+    <p class="rise" data-d="2">Tell us the site and the budget. We will quote it, free, and tailor the clean to what you need.</p>
   </div>
 </section>
 
 <section class="contact" aria-labelledby="contact-h">
   <h2 class="vh" id="contact-h">Contact</h2>
-  <div class="crow first rise">Wipe Clean Services<img src="img/image_67151105.jpg" width="1200" height="1600" alt="Washroom basins and mirror, cleaned" loading="lazy"></div>
+  <div class="crow first rise">Wipe Clean Services<img src="img/caddy.jpg" width="326" height="564" alt="A Wipe Clean cleaner in uniform" loading="lazy"></div>
   <a class="crow rise" href="https://www.google.com/maps/search/?api=1&query=8+Shay+Close+Narre+Warren+VIC+3805">8 Shay Close</a>
   <div class="crow rise">Narre Warren VIC 3805</div>
   <div class="crow rise">Around your hours</div>
@@ -304,7 +365,7 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
     </ul>
   </div>
   <div class="fbot">
-    <div class="credits"><span>ABN 77 121 542 852</span><span>Draft for review. Night photo: Vladimir Kudinov, Unsplash, via picsum.photos</span></div>
+    <div class="credits"><span>ABN 77 121 542 852</span><span>Draft for review. Photos: Wipe Clean Services</span></div>
     <div class="name" aria-hidden="true">Wipe Clean</div>
   </div>
 </footer>
