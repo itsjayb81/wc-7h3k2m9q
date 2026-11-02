@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Wipe Clean Services | Commercial cleaning, Melbourne</title>
+<meta name="description" content="Commercial cleaning for Melbourne offices and retail stores. Our own cleaners, done at night. Draft for review.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --surface:#f4f4f2; --ink:#1f2b4d; --muted:#5b6379;
+  --accent:#f7941d; --accent-ink:#1f2b4d;
+  --water:#1b4fa8; --water-ink:#ffffff;
+  --field-1:#05070a; --field-1-ink:#ffffff;
+  --field-2:#e3e1dc; --field-2-ink:#1f2b4d;
+  --dark-a:#0b0f1a; --dark-b:#121828;
+  --m:clamp(16px,2.2vw,32px);
+  --step-small:clamp(0.8125rem,0.79rem + 0.1vw,0.875rem);
+  --step-body:clamp(1.0625rem,1rem + 0.25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + 0.7vw,1.625rem);
+  --step-statement:clamp(1.5rem,1.1rem + 1.4vw,2.25rem);
+  --step-head:clamp(2.25rem,1rem + 4.6vw,4.25rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Cabinet Grotesk",system-ui,sans-serif;font-weight:400;font-size:var(--step-body);line-height:1.5;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* draft strip */
+.draft{background:var(--field-1);color:var(--field-1-ink);font-size:var(--step-small);padding:8px var(--m);text-align:center}
+
+/* buttons: one shape, square */
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:1rem;padding:14px 22px;text-decoration:none;border-radius:0;transition:transform .25s var(--ease),filter .25s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.05)}
+.btn:active{transform:translateY(0) scale(.98)}
+
+/* hero: waterline */
+.hero{position:relative;height:calc(100svh - 33px);min-height:560px;display:grid;overflow:hidden;background:var(--bg)}
+.hero .sea{position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--water)}
+.hero .brand{position:absolute;top:28px;left:var(--m);font-weight:800;font-size:var(--step-lead);letter-spacing:-.02em;z-index:3;text-decoration:none}
+.hero .btn{position:absolute;top:22px;right:var(--m);z-index:3}
+.hl{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;font-size:clamp(72px,12vw,190px)}
+.hl span{display:block;overflow:hidden;padding:.04em 0 .02em;position:relative;top:-.4em}
+.hl span i{display:block;font-style:normal;transform:translateY(105%)}
+.hl.above{color:var(--ink);clip-path:inset(0 0 50% 0)}
+.hl.below{color:var(--water-ink);clip-path:inset(50% 0 0 0)}
+.loaded .hl span i{transform:none;transition:transform .9s var(--ease)}
+.loaded .hl span:nth-child(2) i{transition-delay:.11s}
+.hero .sub{position:absolute;left:0;right:0;bottom:40px;text-align:center;color:var(--water-ink);font-size:var(--step-lead);line-height:1.35;padding:0 var(--m);z-index:3;opacity:0;transform:translateY(18px)}
+.hero .sub b{font-weight:800}
+.loaded .hero .sub{opacity:1;transform:none;transition:opacity .8s .5s var(--ease),transform .8s .5s var(--ease)}
+
+/* stats: figures inside a sentence */
+.stats{min-height:72svh;display:grid;align-items:center;padding:clamp(80px,12vw,200px) var(--m);background:var(--bg)}
+.stats p{font-size:var(--step-statement);line-height:1.2;letter-spacing:-.02em;color:var(--muted);max-width:30em;margin-left:calc(100% / 12 * 3)}
+.stats p b{font-weight:800;color:var(--ink);white-space:nowrap}
+
+/* band: one real night picture, full bleed */
+.band{position:relative;height:clamp(320px,56vw,760px);overflow:hidden;background:var(--field-1)}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.4s var(--ease)}
+.band.in img{transform:scale(1)}
+.band .cap{position:absolute;left:var(--m);bottom:20px;color:var(--field-1-ink);font-size:var(--step-small);z-index:2}
+.band::after{content:"";position:absolute;inset:0;background:rgba(5,7,10,.18)}
+
+/* work: quiet ledger + side preview */
+.work{padding:clamp(100px,12vw,200px) var(--m);display:grid;grid-template-columns:1fr;position:relative;background:var(--bg)}
+.work .col{width:min(640px,calc(100% - (22vw - var(--m)) - 34vw));margin-left:calc(22vw - var(--m))}
+.work h2{font-size:var(--step-lead);font-weight:500;margin-bottom:32px}
+.ledger{list-style:none}
+.row{display:grid;grid-template-columns:55% 1fr;align-items:center;min-height:56px;font-size:1rem;cursor:default;color:var(--muted);transition:color .2s}
+.row b{font-weight:500}
+.row small{font-size:var(--step-small)}
+.ledger:hover .row,.ledger:focus-within .row{color:var(--muted)}
+.ledger .row:hover,.ledger .row:focus,.ledger .row.on{color:var(--ink)}
+.row:focus{outline:none}
+.row:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.preview{position:absolute;top:clamp(100px,12vw,200px);right:var(--m);width:min(32vw,440px);aspect-ratio:3/4;overflow:hidden;background:var(--surface)}
+.preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s}
+.preview img.show{opacity:1}
+.work .detail{margin-top:32px;font-size:var(--step-body);color:var(--ink);min-height:5.5em;max-width:46ch}
+
+/* features: statement cell, dark rows */
+.feat{display:grid;grid-template-columns:1fr 1fr;min-height:100svh}
+.feat .l{background:var(--field-2);color:var(--field-2-ink);padding:var(--m);display:grid;grid-template-rows:1fr auto;gap:40px}
+.feat h2{font-size:var(--step-head);line-height:.98;letter-spacing:-.035em;font-weight:800;padding-top:clamp(40px,8vw,120px)}
+.feat h2 span{display:block}
+.feat h2 span:nth-child(2){text-align:right}
+.feat .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.feat .foot p{max-width:30ch;font-size:var(--step-body)}
+.feat .r{display:grid;grid-template-rows:repeat(4,1fr);background:var(--dark-a);color:var(--field-1-ink)}
+.frow{display:grid;grid-template-columns:5fr 4fr 3fr;gap:24px;padding:28px var(--m);align-items:start}
+.frow:nth-child(odd){background:var(--dark-a)}
+.frow:nth-child(even){background:var(--dark-b)}
+.frow h3{font-size:var(--step-lead);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.frow p{font-size:1rem;color:#d9dce4}
+.frow ul{list-style:none;font-size:1rem;color:#d9dce4}
+.frow li+li{margin-top:4px}
+
+/* about: side facts, wide paragraph */
+.about{padding:clamp(100px,12vw,200px) var(--m);display:grid;grid-template-columns:34% 1fr;gap:0;background:var(--bg)}
+.facts{display:grid;gap:20px;align-content:start;width:min(100%,200px)}
+.facts dt{font-size:var(--step-small);color:var(--muted)}
+.facts dd{font-size:var(--step-small);color:var(--ink);font-weight:500}
+.about>div{min-width:0}
+.about p{font-size:var(--step-lead);line-height:1.4;max-width:30em;width:100%}
+.about p+p{margin-top:1.1em}
+
+/* contact: address in display rows */
+.contact{background:var(--surface)}
+.crow{font-size:clamp(22px,2.4vw,34px);font-weight:500;letter-spacing:-.03em;line-height:1;padding:30px var(--m) 14px;min-height:84px;display:flex;align-items:flex-end;text-decoration:none}
+.crow:nth-child(odd){background:var(--surface)}
+.crow:nth-child(even){background:var(--field-2)}
+a.crow{transition:padding .35s var(--ease),background .25s}
+a.crow:hover{padding-left:44px;background:var(--bg)}
+.crow.first{justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+.crow.first img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.crow.hello{align-items:center;gap:24px;padding-top:40px;padding-bottom:40px}
+.arrow{width:.9em;height:.9em;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:.5em;font-weight:800;flex:none;transition:transform .3s var(--ease)}
+a.crow:hover .arrow{transform:translateX(10px)}
+
+/* footer */
+footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--field-1-ink);overflow:hidden;padding:clamp(48px,8vw,120px) var(--m) 0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr}
+.fup{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.fup .inv{grid-column:1/8}
+.fup h2{font-size:clamp(1.75rem,1rem + 2.6vw,3rem);line-height:.98;letter-spacing:-.035em;font-weight:800;margin-bottom:32px}
+.fup h2 span{display:block}
+.fup ul{grid-column:9/13;list-style:none;font-size:1rem}
+.fup li+li{margin-top:6px}
+.fbot{align-self:end;position:relative;min-width:0}
+.credits{display:flex;justify-content:space-between;gap:16px;font-size:var(--step-small);color:#c7cbd6;padding-bottom:12px;flex-wrap:wrap}
+.name{display:block;font-weight:800;letter-spacing:-.05em;line-height:.82;white-space:nowrap;font-size:clamp(64px,15vw,300px);transform:translateY(28%);margin-left:-.04em}
+
+/* entrances */
+.rise{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rise.in{opacity:1;transform:none}
+.rise[data-d="1"]{transition-delay:.08s}.rise[data-d="2"]{transition-delay:.16s}.rise[data-d="3"]{transition-delay:.24s}.rise[data-d="4"]{transition-delay:.32s}
+.no-js .rise{opacity:1;transform:none}
+.no-js .hl span i{transform:none}
+.no-js .hero .sub{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .rise,.hero .sub{opacity:1;transform:none;transition:none}
+  .hl span i{transform:none;transition:none}
+  .band img{transform:none;transition:none}
+}
+
+/* tablet and phone: work stacks */
+@media (max-width:1000px){
+  .stats{min-height:0;padding:96px var(--m)}
+  .stats p{margin-left:0}
+  .work{padding:80px var(--m)}
+  .work .col{margin-left:0;width:100%}
+  .preview{position:relative;top:auto;right:auto;width:100%;aspect-ratio:16/10;margin-bottom:28px}
+  .preview img{object-position:center 40%}
+  .row{grid-template-columns:55% 1fr}
+}
+/* phone */
+@media (max-width:760px){
+  .hero{min-height:520px}
+  .hero .sea{height:54%}
+  .hl{font-size:15.5vw}
+  .hl.above{clip-path:inset(0 0 54% 0)}
+  .hl.below{clip-path:inset(46% 0 0 0)}
+  .hero .brand{font-size:1.125rem;top:24px}
+  .hero .btn{padding:10px 14px;top:18px}
+  .hero .sub{text-align:left;font-size:1.125rem;bottom:24px;padding:0 16px}
+  .stats p{font-size:1.5rem;line-height:1.25;margin-left:0}
+  .row{min-height:52px;grid-template-columns:1fr}
+  .row small{display:block;font-size:.8125rem;margin-top:-6px;margin-bottom:6px}
+  .feat{grid-template-columns:1fr}
+  .feat .l{min-height:70svh}
+  .feat h2{font-size:10vw}
+  .feat .r{grid-template-rows:none}
+  .frow{grid-template-columns:1fr;gap:10px;padding:24px 16px}
+  .frow ul{display:flex;flex-wrap:wrap;gap:4px 12px}
+  .frow li+li{margin-top:0}
+  .about{grid-template-columns:1fr;padding:80px 16px;gap:40px}
+  .about p{font-size:1.1875rem;width:100%}
+  .facts{grid-template-columns:1fr 1fr;width:100%;order:2}
+  .crow{font-size:1.25rem;min-height:64px;padding:18px 16px 10px}
+  .crow.first{justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+.crow.first img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.crow.hello{background:var(--accent);padding:24px 16px}
+  .fup{display:block}
+  .fup h2{font-size:2rem}
+  .fup ul{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
+  .name{font-size:20vw}
+  .credits{font-size:.8125rem}
+}
+</style>
+<noscript><style>.rise{opacity:1!important;transform:none!important}.hl span i{transform:none!important}.hero .sub{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="draft">Draft for Roger Wilson to review. Not live. Figures and photos to be confirmed.</div>
+
+<header class="hero" id="top">
+  <div class="sea"></div>
+  <a class="brand" href="#top">Wipe Clean Services</a>
+  <a class="btn" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request&body=Site%20and%20job%3A%20">Get a free quote</a>
+  <h1 class="hl above" aria-label="Clean by morning. Wipe Clean Services, commercial cleaning for Melbourne offices and retail stores.">
+    <span aria-hidden="true"><i>Clean by</i></span>
+    <span aria-hidden="true"><i>morning</i></span>
+  </h1>
+  <div class="hl below" aria-hidden="true">
+    <span><i>Clean by</i></span>
+    <span><i>morning</i></span>
+  </div>
+  <p class="sub"><b>Wipe Clean Services.</b> Commercial cleaning for Melbourne offices and retail stores, done at night by our own cleaners.</p>
+</header>
+
+<main>
+<section class="stats" aria-labelledby="stats-h">
+  <h2 class="vh" id="stats-h">The numbers</h2>
+  <p class="rise">Last financial year our own cleaners worked <b>over&nbsp;11,500&nbsp;hours</b> in Melbourne offices and stores, and we have stripped and sealed <b>over&nbsp;270&nbsp;store&nbsp;floors</b>.</p>
+</section>
+
+<div class="band" id="band">
+  <img src="img/night-windows.jpg" width="2400" height="1350" alt="A tower at night with a grid of lit office windows" loading="lazy">
+  <span class="cap">Photo: Vladimir Kudinov, Unsplash</span>
+</div>
+
+<section class="work" aria-labelledby="work-h">
+  <div class="col">
+    <h2 id="work-h" class="rise">What we clean</h2>
+    <ul class="ledger" id="ledger">
+      <li class="row rise" data-d="1" tabindex="0" data-i="0" data-t="Offices and retail stores, including after hours so your team is not disturbed. Janitorial, restrooms, safe rubbish removal and recycling, car parks."><b>Commercial cleaning</b><small>Offices and stores</small></li>
+      <li class="row rise" data-d="1" tabindex="0" data-i="1" data-t="Over 270 retail store floors. Back to a gleaming finish, tailored to your budget, with generic or Green Tick approved products."><b>Strip and seal</b><small>Retail floors</small></li>
+      <li class="row rise" data-d="2" tabindex="0" data-i="2" data-t="High-pressure steam, carpet steam cleaning with hot water extraction, upholstery, deodorising and carpet dry cleaning."><b>Steam cleaning</b><small>Carpet and upholstery</small></li>
+      <li class="row rise" data-d="2" tabindex="0" data-i="3" data-t="From a once-over to a deep clean. Skirting boards, walls, carpets, hard floors, kitchens, bathrooms, vents and windows."><b>End of lease and builders clean</b><small>One-off jobs</small></li>
+      <li class="row rise" data-d="3" tabindex="0" data-i="4" data-t="Inside and out, streak free. Blinds, high pressure cleaning, and regular or twice-a-year schedules."><b>Window cleaning</b><small>Regular or twice a year</small></li>
+      <li class="row rise" data-d="3" tabindex="0" data-i="5" data-t="Colour-coded buckets, mops and rags to stop cross contamination. Eco-friendly products and tagged electrical equipment."><b>Safe, colour-coded cleaning</b><small>Every site</small></li>
+    </ul>
+    <p class="detail" id="detail" aria-live="polite">Offices and retail stores, including after hours so your team is not disturbed. Janitorial, restrooms, safe rubbish removal and recycling, car parks.</p>
+  </div>
+  <div class="preview" aria-hidden="false">
+    <img class="show" src="img/image_67128577.jpg" width="1200" height="1600" alt="Washroom cubicles and a freshly sealed non-slip floor">
+    <img src="img/image_67123457.jpg" width="1200" height="1600" alt="Basins and tiled floor in a commercial washroom" loading="lazy">
+    <img src="img/image_67151105.jpg" width="1200" height="1600" alt="Washroom basins, mirror and floor, cleaned" loading="lazy">
+    <img src="img/unnamed.jpg" width="1200" height="1600" alt="Clean basins and mirror" loading="lazy">
+    <img src="img/image_67134209.jpg" width="1200" height="1600" alt="Sanitised toilet, floor and brush" loading="lazy">
+    <img src="img/image002.jpg" width="1200" height="1600" alt="Sanitised toilet and floor mat" loading="lazy">
+  </div>
+</section>
+
+<section class="feat" aria-labelledby="feat-h">
+  <div class="l">
+    <h2 id="feat-h"><span class="rise">We do not</span><span class="rise" data-d="1">subcontract.</span></h2>
+    <div class="foot">
+      <p class="rise">Our own cleaners and our own area managers, so the person who promised the job is the person who answers the phone.</p>
+      <a class="btn" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">Ask for a quote</a>
+    </div>
+  </div>
+  <div class="r">
+    <div class="frow rise"><h3>Our own staff</h3><p>Cleaners are ours, paid Award wages, in uniform and security checked.</p><ul><li>Not labour hire</li><li>Award wages</li><li>Security checked</li></ul></div>
+    <div class="frow rise" data-d="1"><h3>Someone to call</h3><p>Area managers are reachable day and night, not just in office hours.</p><ul><li>Area managers</li><li>Reachable 24/7</li><li>Free quotes</li></ul></div>
+    <div class="frow rise" data-d="2"><h3>Safe by method</h3><p>Colour-coded buckets, mops and rags stop one area contaminating another.</p><ul><li>Colour coding</li><li>Eco products</li><li>Tagged equipment</li></ul></div>
+    <div class="frow rise" data-d="3"><h3>Qualified</h3><p>CM3 qualified, and on a government and school cleaning panel since 2014.</p><ul><li>CM3 qualified</li><li>Government panel</li><li>School panel</li></ul></div>
+  </div>
+</section>
+
+<section class="about" aria-labelledby="about-h">
+  <h2 class="vh" id="about-h">About Wipe Clean Services</h2>
+  <dl class="facts rise">
+    <div><dt>Based in</dt><dd>Narre Warren, Melbourne</dd></div>
+    <div><dt>Works in</dt><dd>Offices, stores, schools, aged care</dd></div>
+    <div><dt>ABN</dt><dd>77 121 542 852</dd></div>
+  </dl>
+  <div>
+    <p class="rise">Wipe Clean Services cleans commercial sites across Melbourne. Offices and retail stores are the core of it, with schools and aged care alongside, and the work is done around your hours so your team never has to step over a mop bucket.</p>
+    <p class="rise" data-d="1">Tell us the site and the budget. We will quote it, free, and tailor the clean to what you need, weekly, monthly or twice a year.</p>
+  </div>
+</section>
+
+<section class="contact" aria-labelledby="contact-h">
+  <h2 class="vh" id="contact-h">Contact</h2>
+  <div class="crow first rise">Wipe Clean Services<img src="img/image_67151105.jpg" width="1200" height="1600" alt="Washroom basins and mirror, cleaned" loading="lazy"></div>
+  <a class="crow rise" href="https://www.google.com/maps/search/?api=1&query=8+Shay+Close+Narre+Warren+VIC+3805">8 Shay Close</a>
+  <div class="crow rise">Narre Warren VIC 3805</div>
+  <div class="crow rise">Around your hours</div>
+  <a class="crow rise" href="tel:0468914473">0468 914 473</a>
+  <a class="crow hello rise" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">Hello <span class="arrow" aria-hidden="true">&rarr;</span><span class="vh">Email us for a free quote</span></a>
+</section>
+</main>
+
+<footer>
+  <div class="fup">
+    <div class="inv">
+      <h2><span>Free quotes.</span><span>Send us the site.</span></h2>
+      <a class="btn" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">Email us</a>
+    </div>
+    <ul>
+      <li><a href="tel:0468914473">0468 914 473</a></li>
+      <li><a href="mailto:wipecleanservices@gmail.com">wipecleanservices@gmail.com</a></li>
+      <li>8 Shay Close, Narre Warren</li>
+    </ul>
+  </div>
+  <div class="fbot">
+    <div class="credits"><span>ABN 77 121 542 852</span><span>Draft for review. Night photo: Vladimir Kudinov, Unsplash, via picsum.photos</span></div>
+    <div class="name" aria-hidden="true">Wipe Clean</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document.documentElement;
+  try{
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('loaded')})});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.rise,.band').forEach(function(el){io.observe(el)});
+  }catch(e){d.classList.add('loaded','no-js')}
+  var rows=document.querySelectorAll('#ledger .row'),imgs=document.querySelectorAll('.preview img'),det=document.getElementById('detail');
+  function pick(r){
+    rows.forEach(function(x){x.classList.remove('on')});r.classList.add('on');
+    imgs.forEach(function(im,i){im.classList.toggle('show',i===+r.dataset.i)});
+    det.textContent=r.dataset.t;
+  }
+  rows.forEach(function(r){
+    r.addEventListener('mouseenter',function(){pick(r)});
+    r.addEventListener('focus',function(){pick(r)});
+    r.addEventListener('click',function(){pick(r)});
+  });
+  rows[0].classList.add('on');
+})();
+</script>
+</body>
+</html>
