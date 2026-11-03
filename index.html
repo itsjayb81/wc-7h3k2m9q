@@ -221,6 +221,21 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
   .name{font-size:20vw}
   .credits{font-size:.8125rem}
 }
+
+/* v3 contact: two columns */
+.cgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--surface)}
+.cl{padding:clamp(36px,5vw,72px) var(--m);display:grid;gap:14px;align-content:center;justify-items:start}
+.cl img.mark{width:clamp(150px,18vw,230px);height:auto;margin-bottom:10px}
+.cbig{font-size:clamp(34px,5vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1;text-decoration:none}
+.cmail{font-size:clamp(1.0625rem,1vw + .8rem,1.5rem);text-decoration:none;letter-spacing:-.02em}
+.cinfo{font-size:1.0625rem;line-height:1.5;color:var(--muted)}
+.cinfo a{text-decoration:none}
+.cbig:hover,.cmail:hover,.cinfo a:hover{text-decoration:underline}
+.cbtn{margin-top:10px;background:var(--accent);color:var(--ink);padding:16px 26px;font-weight:500;text-decoration:none;transition:background .25s}
+.cbtn:hover{background:var(--water);color:#fff}
+.cr{position:relative;min-height:340px}
+.cr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.cgrid{grid-template-columns:1fr}.cr{min-height:240px}}
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important}.hl span i{transform:none!important}.hero .sub{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -343,12 +358,16 @@ footer{position:relative;min-height:72svh;background:var(--field-1);color:var(--
 
 <section class="contact" aria-labelledby="contact-h">
   <h2 class="vh" id="contact-h">Contact</h2>
-  <div class="crow first rise">Wipe Clean Services<img class="mark" src="img/logo.png" width="400" height="100" alt="" loading="lazy"></div>
-  <a class="crow rise" href="https://www.google.com/maps/search/?api=1&query=8+Shay+Close+Narre+Warren+VIC+3805">8 Shay Close</a>
-  <div class="crow rise">Narre Warren VIC 3805</div>
-  <div class="crow rise">Around your hours</div>
-  <a class="crow rise" href="tel:0468914473">0468 914 473</a>
-  <a class="crow hello rise" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">Hello <span class="arrow" aria-hidden="true">&rarr;</span><span class="vh">Email us for a free quote</span></a>
+  <div class="cgrid">
+    <div class="cl rise">
+      <img class="mark" src="img/logo.png" width="400" height="100" alt="Wipe Clean Services">
+      <a class="cbig" href="tel:0468914473">0468 914 473</a>
+      <a class="cmail" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">wipecleanservices@gmail.com</a>
+      <p class="cinfo"><a href="https://www.google.com/maps/search/?api=1&amp;query=8+Shay+Close+Narre+Warren+VIC+3805">8 Shay Close, Narre Warren VIC 3805</a><br>Around your hours</p>
+      <a class="cbtn" href="mailto:wipecleanservices@gmail.com?subject=Quote%20request">Ask for a free quote <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="cr rise" data-d="1"><img src="img/windows-night.jpg" alt="A cleaner working on shopfront windows at night" loading="lazy"></div>
+  </div>
 </section>
 </main>
 
